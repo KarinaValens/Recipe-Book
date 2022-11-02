@@ -27,9 +27,10 @@ a:hover {
 body {
   margin: 0;
   display: flex;
+  flex-direction: column;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  /* min-width: 320px;
+  min-height: 100vh; */
 }
 
 h1 {
@@ -38,7 +39,7 @@ h1 {
 }
 
 #app {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -66,20 +67,29 @@ form {
   gap: 1rem;
 }
 
-#preparation,
-label[for="preparation"] {
+#prepForm,
+label[for="prepForm"] {
   grid-column: 1 / -1;
   width: 100%;
   justify-self: center;
 }
 
-.card {
-  padding: 2em;
+#ingredients {
+  max-width: 50%;
+  margin: auto;
+}
+#preparation {
+  max-width: 90%;
+  margin: auto;
+  text-align: start;
 }
 
-.read-the-docs {
-  color: #888;
+#card {
+  border: solid 2px white;
+  margin: 3rem auto;
+  max-width: 100%;
 }
+/* ------------------------------------------ */
 
 button {
   border-radius: 8px;

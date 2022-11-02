@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app">  <!-- <form action="">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+</head>
+
+<body>
+  <div id="app">
+    <form action="">
       <label for="number">Number</label>
       <input type="text" id=" " name="number">
-    
-      <label for="title">Title</label>
-      <input type="text" id=" " name="title">
-      
-      <label for="ingredients">Ingredients</label>
-      <input type="text" id=" " name="ingredients">
-    
-      <label for="preparation">Preparation</label>
-      <textarea name="preparation" id="preparation" cols="30" rows="10"></textarea>
-    
-      <button type="submit">Save</button>
-    </form> -->
-  <template>
-    <h1></h1>
-    <h2></h2>
-    <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-    <textarea name="process" id="process" cols="30" rows="10"></textarea>
 
-  </template></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+      <label for="name">Title</label>
+      <input type="text" id=" " name="name">
+
+      <label for="ingredients">Ingredients</label>
+      <textarea name="ingredients" id="ingredients" cols="30" rows="10"></textarea>
+
+
+      <label for="prepForm">Preparation</label>
+      <textarea name="preparation" id="prepForm" cols="30" rows="10"></textarea>
+
+      <button type="submit" id="newRecipe">Save</button>
+    </form>
+  </div>
+  <main>
+    <template>
+      <div id="card">
+        <h2>Recipe Name</h2>
+        <h3>Ingredients</h3>
+        <ol id="ingredients">
+        </ol>
+        <h3>Preparation</h3>
+        <ol id="preparation"></ol>
+        <button>🗑️</button>
+      </div>
+    </template>
+  </main>
+
+
+  <script type="module" src="/main.js"></script>
+</body>
+
 </html>
