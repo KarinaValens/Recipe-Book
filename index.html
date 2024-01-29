@@ -21,25 +21,26 @@
       <textarea name="ingredients" id="ingredients" cols="30" rows="10"></textarea>
 
 
-      <label for="prepForm">Preparation</label>
-      <textarea name="preparation" id="prepForm" cols="30" rows="10"></textarea>
+      <label for="preparation">Preparation</label>
+      <textarea name="preparation" id="preparation" cols="30" rows="10"></textarea>
 
       <button type="submit" id="newRecipe">Save</button>
     </form>
   </div>
   <main>
-    <template>
-      <div id="card">
-        <h2>Recipe Name</h2>
-        <h3>Ingredients</h3>
-        <ol id="ingredients">
-        </ol>
-        <h3>Preparation</h3>
-        <ol id="preparation"></ol>
-        <button>🗑️</button>
-      </div>
-    </template>
+
   </main>
+  <template>
+    <div id="card">
+      <h2>Recipe Name</h2>
+      <h3>Ingredients</h3>
+      <ol id="ingredients">
+      </ol>
+      <h3>Preparation</h3>
+      <ol id="steps"></ol>
+      <button>🗑️</button>
+    </div>
+  </template>
 
 
   <script type="module" src="/main.js"></script>

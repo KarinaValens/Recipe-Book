@@ -11,13 +11,26 @@ const headers = {
   Prefer: 'return=representation'
 };
 
+let form;
 
 
 
 function init() {
   getRecipes();
-  const add = document.querySelector("#newRecipe");
-  add.addEventListener("click", addRecipe);
+  form = document.querySelector("form");
+
+  //const add = document.querySelector("#newRecipe");
+  //add.addEventListener("click", addRecipe);
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const obj = {
+      name: form.elements.name.value,
+      ingredients: form.elements.ingredients.value.split("\n"),
+      preparation: form.elements.preparation.value.split("\n"),
+    }
+    addRecipe(obj);
+  })
 }
 
 async function getRecipes() {
@@ -32,26 +45,18 @@ async function getRecipes() {
 
 async function addRecipe(newRecipe) {
   const options = {
-    method: "POST",
+    method: 'POST',
     headers: headers,
     body: JSON.stringify(newRecipe) //the stringify method converts a JavaScript value to a JSON string
   };
   const res = await fetch(url, options);
   const recipes = await res.json();
-  //console.log(recipes);
+  console.log(recipes);
+  getRecipes();
 }
 
 
-const form = document.querySelector("form");
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const obj = {
-    name: form.elements.name.value,
-    ingredients: form.elements.ingredients.value.split("\n"),
-    preparation: form.elements.preparation.value.split("\n"),
-  }
-  addRecipe(obj);
-})
+
 
 
 async function deleteRecipe(id) {
@@ -62,12 +67,14 @@ async function deleteRecipe(id) {
 
   const res = await fetch(url + `?id=eq.` + id, options);
   const recipes = await res.json();
-
+  getRecipes();
 }
 
-async function handleRecipes(recipes) {
-  recipes.forEach(showRecipe);
 
+function handleRecipes(recipes) {
+
+  document.querySelector("main").innerHTML = "";
+  recipes.forEach(showRecipe);
 }
 
 async function showRecipe(recipe) {
@@ -89,7 +96,7 @@ async function showRecipe(recipe) {
 
   const prepList = recipe.preparation;
   for (let i = 0; i < prepList.length; i++) {
-    const prepItem = clone.querySelector("#preparation");
+    const prepItem = clone.querySelector("#steps");
 
     const prepStep = document.createElement("li");
     prepStep.textContent = prepList[i];
